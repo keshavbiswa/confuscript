@@ -1,10 +1,14 @@
 grammar Confuscript
   rule action
-    assignment / console_input
+    assignment / initialization / console_input
   end
 
   rule assignment
     'give' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode>
+  end
+
+  rule initialization
+    'give' space variable ';' <Confuscript::Nodes::InitializationNode>
   end
 
   rule console_input
