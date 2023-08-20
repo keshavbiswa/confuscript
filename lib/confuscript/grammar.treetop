@@ -16,12 +16,15 @@ grammar Confuscript
   end
 
   rule string
-    '"' [^"]* '"' <Confuscript::Nodes::StringNode> 
-    # You don't need to specify <Confuscript::Nodes::StringNode> unless you have a specific StringNode class under the Confuscript module.
+    '"' [^"]* '"' <Confuscript::Nodes::Values::StringNode> 
   end
 
   rule number
-    [0-9]+ <Confuscript::Nodes::NumberNode>
+    [0-9]+ <Confuscript::Nodes::Values::NumberNode>
+  end
+
+  rule boolean
+    'true' / 'false' <Confuscript::Nodes::Values::BooleanNode>
   end
 
   rule space
@@ -29,10 +32,10 @@ grammar Confuscript
   end
 
   rule variable
-    [a-zA-Z]+ <Confuscript::Nodes::VariableNode>
+    [a-zA-Z]+ <Confuscript::Nodes::Values::VariableNode>
   end
 
   rule value
-    string / number / variable
+    string / number / boolean / variable
   end
 end
