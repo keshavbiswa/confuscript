@@ -3,11 +3,25 @@
 require "test_helper"
 
 class TestConfuscript < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::Confuscript::VERSION
+  def setup
+    @code = 'console.input("hello world")'
   end
 
-  def test_it_does_something_useful
-    assert false
+  def test_successful_parse_and_interpret
+    assert_output("\"hello world\"\n") do
+      Confuscript.interpret(@code)
+    end
+  end
+
+  def test_unsuccessful_parse
+    assert_raises Confuscript::SyntaxError do
+      Confuscript.interpret('console.wrong_syntax("hello world")')
+    end
+  end
+
+  def test_empty_input
+    assert_raises Confuscript::Error do
+      Confuscript.interpret("")
+    end
   end
 end
