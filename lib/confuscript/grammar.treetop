@@ -1,25 +1,41 @@
 grammar Confuscript
   rule action
-    assignment / expression / initialization / console_input
+    assignment / expression / if_else / initialization / console_input
   end
 
   rule assignment
     'give' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> /
-    'give' space variable space '=' space arithmetic <Confuscript::Nodes::AssignmentNode> /
+    'give' space variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode> /
     variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> / 
-    variable space '=' space arithmetic <Confuscript::Nodes::AssignmentNode>
+    variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode>
   end
 
   rule expression
     arithmetic / comparison / value ';' <Confuscript::Nodes::ExpressionNode>
   end
 
+  rule if_else
+    if_clause space else_clause ';' <Confuscript::Nodes::IfElseNode>
+  end
+
+  rule if_clause
+    'if' space '(' comparison ')' space block
+  end
+
+  rule else_clause
+    'else' space block
+  end
+
+  rule block
+    '{' space action* space '}' <Confuscript::Nodes::BlockNode>
+  end
+
   rule arithmetic
-    value space operator space value ';' <Confuscript::Nodes::Expressions::ArithmeticNode>
+    value space operator space value <Confuscript::Nodes::Expressions::ArithmeticNode>
   end
 
   rule comparison
-    value space comparison_operator space value ';' <Confuscript::Nodes::Expressions::ComparisonNode>
+    value space comparison_operator space value <Confuscript::Nodes::Expressions::ComparisonNode>
   end
 
   # rules are opposite

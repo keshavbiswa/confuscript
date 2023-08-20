@@ -8,6 +8,8 @@ require_relative "confuscript/nodes/console_input_node"
 require_relative "confuscript/nodes/initialization_node"
 require_relative "confuscript/nodes/assignment_node"
 require_relative "confuscript/nodes/expression_node"
+require_relative "confuscript/nodes/if_else_node"
+require_relative "confuscript/nodes/block_node"
 
 # Expressions
 require_relative "confuscript/nodes/expressions/arithmetic_node"
