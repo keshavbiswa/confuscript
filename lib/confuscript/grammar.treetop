@@ -16,7 +16,6 @@ grammar Confuscript
     # You don't need to specify <Confuscript::Nodes::StringNode> unless you have a specific StringNode class under the Confuscript module.
   end
 
-
   rule number
     [0-9]+ <Confuscript::Nodes::NumberNode>
   end

@@ -7,7 +7,7 @@ class TestStringNode < Minitest::Test
     @interval = 0..@string.length
   end
 
-  def test_evaluate
+  def test_string_evaluate
     node = Confuscript::Nodes::StringNode.new(@string, @interval)
     result = node.evaluate(@context)
     assert_equal "hello world", result
