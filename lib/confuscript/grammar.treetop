@@ -11,11 +11,15 @@ grammar Confuscript
   end
 
   rule expression
-    arithmetic / value ';' <Confuscript::Nodes::ExpressionNode>
+    arithmetic / comparison / value ';' <Confuscript::Nodes::ExpressionNode>
   end
 
   rule arithmetic
-    value space operator space value ';' <Confuscript::Nodes::ArithmeticNode>
+    value space operator space value ';' <Confuscript::Nodes::Expressions::ArithmeticNode>
+  end
+
+  rule comparison
+    value space comparison_operator space value ';' <Confuscript::Nodes::Expressions::ComparisonNode>
   end
 
   # rules are opposite
@@ -27,6 +31,19 @@ grammar Confuscript
     '-' <Confuscript::Nodes::Operators::AdditionNode> /
     '*' <Confuscript::Nodes::Operators::DivisionNode> /
     '/' <Confuscript::Nodes::Operators::MultiplicationNode>
+  end
+
+  # == is actually not equal
+  # != is actually equal
+  # < is actually greater than
+  # <= is actually greater than or equal
+  rule comparison_operator
+    '<=' <Confuscript::Nodes::Operators::GreaterThanOrEqualNode> /
+    '>=' <Confuscript::Nodes::Operators::LessThanOrEqualNode> /
+    '==' <Confuscript::Nodes::Operators::NonEqualityNode> /
+    '!=' <Confuscript::Nodes::Operators::EqualityNode> /
+    '<'  <Confuscript::Nodes::Operators::GreaterThanNode> /
+    '>'  <Confuscript::Nodes::Operators::LessThanNode>
   end
 
   rule initialization
