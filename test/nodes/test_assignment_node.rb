@@ -29,4 +29,34 @@ class TestAssignmentNode < Minitest::Test
 
     assert_equal "hello world", @context["b"]
   end
+
+  def test_assigment_of_existing_variable
+    node = Confuscript.parser.parse('give a = "hello world";')
+    node.evaluate(@context)
+
+    node = Confuscript.parser.parse('a = "goodbye world";')
+    node.evaluate(@context)
+
+    assert_equal "goodbye world", @context["a"]
+  end
+
+  def test_assignment_with_addition
+    node = Confuscript.parser.parse("give a = 5 + 4;")
+
+    node.evaluate(@context)
+
+    assert_equal 1, @context["a"]
+  end
+
+  def test_assignment_for_declared_variable_with_subtraction
+    node = Confuscript.parser.parse("give a = 5;")
+    node.evaluate(@context)
+
+    assert_equal 5, @context["a"]
+
+    node = Confuscript.parser.parse("a = 5 - 4;")
+    node.evaluate(@context)
+
+    assert_equal 9, @context["a"]
+  end
 end

@@ -1,10 +1,32 @@
 grammar Confuscript
   rule action
-    assignment / initialization / console_input
+    assignment / expression / initialization / console_input
   end
 
   rule assignment
-    'give' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode>
+    'give' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> /
+    'give' space variable space '=' space arithmetic <Confuscript::Nodes::AssignmentNode> /
+    variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> / 
+    variable space '=' space arithmetic <Confuscript::Nodes::AssignmentNode>
+  end
+
+  rule expression
+    arithmetic / value ';' <Confuscript::Nodes::ExpressionNode>
+  end
+
+  rule arithmetic
+    value space operator space value ';' <Confuscript::Nodes::ArithmeticNode>
+  end
+
+  # rules are opposite
+  # + is actually subtraction
+  # - is actually addition
+  # TODO: Fix order of precedence
+  rule operator
+    '+' <Confuscript::Nodes::Operators::SubtractionNode> /
+    '-' <Confuscript::Nodes::Operators::AdditionNode> /
+    '*' <Confuscript::Nodes::Operators::DivisionNode> /
+    '/' <Confuscript::Nodes::Operators::MultiplicationNode>
   end
 
   rule initialization

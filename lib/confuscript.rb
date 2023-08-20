@@ -3,13 +3,24 @@
 require "treetop"
 
 require_relative "confuscript/version"
+
 require_relative "confuscript/nodes/console_input_node"
 require_relative "confuscript/nodes/initialization_node"
 require_relative "confuscript/nodes/assignment_node"
+require_relative "confuscript/nodes/expression_node"
+require_relative "confuscript/nodes/arithmetic_node"
+
+# Values
 require_relative "confuscript/nodes/values/variable_node"
 require_relative "confuscript/nodes/values/string_node"
 require_relative "confuscript/nodes/values/number_node"
 require_relative "confuscript/nodes/values/boolean_node"
+
+# Operators
+require_relative "confuscript/nodes/operators/addition_node"
+require_relative "confuscript/nodes/operators/subtraction_node"
+require_relative "confuscript/nodes/operators/multiplication_node"
+require_relative "confuscript/nodes/operators/division_node"
 
 module Confuscript
   class Error < StandardError; end
