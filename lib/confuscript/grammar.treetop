@@ -4,8 +4,8 @@ grammar Confuscript
   end
 
   rule assignment
-    'give' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> /
-    'give' space variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode> /
+    'forget' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> /
+    'forget' space variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode> /
     variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> / 
     variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode>
   end
@@ -63,7 +63,7 @@ grammar Confuscript
   end
 
   rule initialization
-    'give' space variable ';' <Confuscript::Nodes::InitializationNode>
+    'forget' space variable ';' <Confuscript::Nodes::InitializationNode>
   end
 
   rule console_input

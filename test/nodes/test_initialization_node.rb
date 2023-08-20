@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestInitializeNode < Minitest::Test
   def setup
-    @input = "give a;"
+    @input = "forget a;"
     @context = {}
   end
 
