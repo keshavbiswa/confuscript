@@ -5,6 +5,9 @@ require "treetop"
 require_relative "confuscript/version"
 require_relative "confuscript/nodes/console_input_node"
 require_relative "confuscript/nodes/string_node"
+require_relative "confuscript/nodes/assignment_node"
+require_relative "confuscript/nodes/variable_node"
+require_relative "confuscript/nodes/number_node"
 
 module Confuscript
   class Error < StandardError; end

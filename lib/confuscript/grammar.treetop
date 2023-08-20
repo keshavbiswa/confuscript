@@ -4,16 +4,21 @@ grammar Confuscript
   end
 
   rule assignment
-    'give' space variable space '=' space value <Confuscript::Nodes::AssignmentNode>
+    'give' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode>
   end
 
   rule console_input
-    'console.input(' string ')' <Confuscript::Nodes::ConsoleInputNode>
+    'console.input(' string ')' ';' <Confuscript::Nodes::ConsoleInputNode>
   end
 
   rule string
     '"' [^"]* '"' <Confuscript::Nodes::StringNode> 
     # You don't need to specify <Confuscript::Nodes::StringNode> unless you have a specific StringNode class under the Confuscript module.
+  end
+
+
+  rule number
+    [0-9]+ <Confuscript::Nodes::NumberNode>
   end
 
   rule space
@@ -22,5 +27,9 @@ grammar Confuscript
 
   rule variable
     [a-zA-Z]+ <Confuscript::Nodes::VariableNode>
+  end
+
+  rule value
+    string / number / variable
   end
 end

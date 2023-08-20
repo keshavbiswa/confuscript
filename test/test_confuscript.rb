@@ -4,7 +4,7 @@ require "test_helper"
 
 class TestConfuscript < Minitest::Test
   def setup
-    @code = 'console.input("hello world")'
+    @code = 'console.input("hello world");'
   end
 
   def test_successful_parse_and_interpret
