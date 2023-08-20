@@ -1,0 +1,26 @@
+grammar Confuscript
+  rule action
+    assignment / console_input
+  end
+
+  rule assignment
+    'give' space variable space '=' space value <Confuscript::Nodes::AssignmentNode>
+  end
+
+  rule console_input
+    'console.input(' string ')' <Confuscript::Nodes::ConsoleInputNode>
+  end
+
+  rule string
+    '"' [^"]* '"' <Confuscript::Nodes::StringNode> 
+    # You don't need to specify <Confuscript::Nodes::StringNode> unless you have a specific StringNode class under the Confuscript module.
+  end
+
+  rule space
+    ' '*
+  end
+
+  rule variable
+    [a-zA-Z]+ <Confuscript::Nodes::VariableNode>
+  end
+end
