@@ -15,7 +15,7 @@ class TestBooleanNode < Minitest::Test
   end
 
   def test_parsing
-    node = Confuscript.parser.parse("forget a = false;")
+    node = Confuscript.parser.parse("null a = false;")
     node.evaluate(@context)
 
     assert_equal false, @context["a"]
