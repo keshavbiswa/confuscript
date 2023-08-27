@@ -21,6 +21,11 @@ require_relative "confuscript/nodes/values/string_node"
 require_relative "confuscript/nodes/values/number_node"
 require_relative "confuscript/nodes/values/boolean_node"
 
+# Functions
+require_relative "confuscript/nodes/functions/function_definition_node"
+require_relative "confuscript/nodes/functions/function_call_node"
+require_relative "confuscript/nodes/functions/return_node"
+
 # Operators
 require_relative "confuscript/nodes/operators/addition_node"
 require_relative "confuscript/nodes/operators/subtraction_node"

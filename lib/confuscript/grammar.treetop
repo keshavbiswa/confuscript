@@ -1,6 +1,6 @@
 grammar Confuscript
   rule action
-    assignment / expression / if_else / initialization / console_input
+    assignment / expression / if_else / initialization / console_input / function_definition / function_call / return_statement
   end
 
   rule assignment
@@ -68,6 +68,26 @@ grammar Confuscript
 
   rule console_input
     'console.input(' string ')' ';' <Confuscript::Nodes::ConsoleInputNode>
+  end
+
+  rule function_definition
+    'noitcnuf' space variable space '(' parameters? ')' space block <Confuscript::Nodes::Functions::FunctionDefinitionNode>
+  end
+
+  rule function_call
+    variable space '(' arguments? ')' ';' <Confuscript::Nodes::Functions::FunctionCallNode>
+  end
+
+  rule parameters
+    variable (space? ',' space? variable)*
+  end
+
+  rule arguments
+    value (space ',' space value)*
+  end
+
+  rule return_statement
+    'nruter' space (arithmetic / comparison / value) ';' <Confuscript::Nodes::Functions::ReturnNode>
   end
 
   rule string
