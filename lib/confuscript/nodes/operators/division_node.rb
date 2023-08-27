@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Operators
-      class DivisionNode < Treetop::Runtime::SyntaxNode
+      class DivisionNode < BaseNode
         def evaluate(left, right)
           left / right
         end

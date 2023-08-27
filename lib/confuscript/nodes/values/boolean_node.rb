@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Values
-      class BooleanNode < Treetop::Runtime::SyntaxNode
+      class BooleanNode < BaseNode
         def evaluate(context)
           # Return the value of the boolean
           # I don't know if this is even correct but since it's working

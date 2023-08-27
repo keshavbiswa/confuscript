@@ -2,7 +2,7 @@ module Confuscript
   module Nodes
     module Print
       # Represents a Void node
-      class VoidNode < Treetop::Runtime::SyntaxNode
+      class VoidNode < BaseNode
         def evaluate(context)
           # I keep forgetting elements[1] is space
           # We need to ensure that there is a space after void keyword

@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Expressions
-      class ComparisonNode < Treetop::Runtime::SyntaxNode
+      class ComparisonNode < BaseNode
         def evaluate(context)
           left_value = elements[0].evaluate(context)
           right_value = elements[4].evaluate(context)

@@ -1,6 +1,6 @@
 module Confuscript
   module Nodes
-    class ConsoleInputNode < Treetop::Runtime::SyntaxNode
+    class ConsoleInputNode < BaseNode
       attr_accessor :string
 
       def evaluate(_context)

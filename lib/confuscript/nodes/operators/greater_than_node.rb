@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Operators
-      class GreaterThanNode < Treetop::Runtime::SyntaxNode
+      class GreaterThanNode < BaseNode
         def evaluate(left, right)
           left > right
         end

@@ -2,7 +2,7 @@ module Confuscript
   module Nodes
     module Print
       # Represents a PrintCall node
-      class PrintCallNode < Treetop::Runtime::SyntaxNode
+      class PrintCallNode < BaseNode
         def evaluate(context)
           print_name_element = elements[0]
           print_arguments_element = elements[3]

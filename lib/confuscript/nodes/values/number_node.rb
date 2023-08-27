@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Values
-      class NumberNode < Treetop::Runtime::SyntaxNode
+      class NumberNode < BaseNode
         def evaluate(_context)
           text_value.to_i
         end

@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Expressions
-      class ArithmeticNode < Treetop::Runtime::SyntaxNode
+      class ArithmeticNode < BaseNode
         def evaluate(context)
           left_value = elements[0].evaluate(context)
           right_value = elements[4].evaluate(context)

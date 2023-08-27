@@ -1,6 +1,6 @@
 module Confuscript
   module Nodes
-    class InitializationNode < Treetop::Runtime::SyntaxNode
+    class InitializationNode < BaseNode
       def evaluate(context)
         variable_name = variable.text_value
 

@@ -1,6 +1,6 @@
 module Confuscript
   module Nodes
-    class ExpressionNode < Treetop::Runtime::SyntaxNode
+    class ExpressionNode < BaseNode
       def evaluate(context)
         if respond_to?(:arithmetic)
           arithmetic.evaluate(context)

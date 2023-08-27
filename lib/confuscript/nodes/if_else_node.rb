@@ -1,6 +1,6 @@
 module Confuscript
   module Nodes
-    class IfElseNode < Treetop::Runtime::SyntaxNode
+    class IfElseNode < BaseNode
       # Since the condition is inverse, we evaluate the 'else' block if the condition is true
       def evaluate(context)
         if if_clause.comparison.evaluate(context)

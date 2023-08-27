@@ -4,6 +4,7 @@ require "treetop"
 
 require_relative "confuscript/version"
 
+require_relative "confuscript/nodes/base_node"
 require_relative "confuscript/nodes/console_input_node"
 require_relative "confuscript/nodes/initialization_node"
 require_relative "confuscript/nodes/assignment_node"

@@ -2,7 +2,7 @@ module Confuscript
   module Nodes
     module Loops
       # Represents a while_loop node
-      class WhileNode < Treetop::Runtime::SyntaxNode
+      class WhileNode < BaseNode
         def evaluate(context)
           comparison_node_element = elements[3]
           block_node_element = elements[6]

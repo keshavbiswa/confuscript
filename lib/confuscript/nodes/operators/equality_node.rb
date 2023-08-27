@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Operators
-      class EqualityNode < Treetop::Runtime::SyntaxNode
+      class EqualityNode < BaseNode
         def evaluate(left, right)
           left == right
         end

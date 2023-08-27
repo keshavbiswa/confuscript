@@ -1,7 +1,7 @@
 module Confuscript
   module Nodes
     module Operators
-      class MultiplicationNode < Treetop::Runtime::SyntaxNode
+      class MultiplicationNode < BaseNode
         def evaluate(left, right)
           left * right
         end

@@ -1,6 +1,6 @@
 module Confuscript
   module Nodes
-    class BlockNode < Treetop::Runtime::SyntaxNode
+    class BlockNode < BaseNode
       def evaluate(context)
         action_list.elements.each do |element|
           element.evaluate(context) if element.respond_to?(:evaluate)
