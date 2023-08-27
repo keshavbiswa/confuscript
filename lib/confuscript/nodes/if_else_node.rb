@@ -4,7 +4,7 @@ module Confuscript
       # Since the condition is inverse, we evaluate the 'else' block if the condition is true
       def evaluate(context)
         if if_clause.comparison.evaluate(context)
-          else_clause.block.evaluate(context)
+          else_clause.block.evaluate(context) if else_clause.respond_to?(:block)
         else
           if_clause.block.evaluate(context)
         end
@@ -17,7 +17,7 @@ module Confuscript
       end
 
       def else_clause
-        elements[1]
+        elements[2]
       end
     end
   end

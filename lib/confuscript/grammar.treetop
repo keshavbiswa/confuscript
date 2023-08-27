@@ -17,7 +17,7 @@ grammar Confuscript
   ### If else
 
   rule if_else
-    if_clause space else_clause ';' <Confuscript::Nodes::IfElseNode>
+    if_clause space else_clause? ';' <Confuscript::Nodes::IfElseNode>
   end
 
   rule if_clause
@@ -118,7 +118,11 @@ grammar Confuscript
   end
 
   rule space
-    ' '*
+    (' ' / newline)*
+  end
+
+  rule newline
+    ("\r\n"+ / [\r\n]+)
   end
 
   rule variable

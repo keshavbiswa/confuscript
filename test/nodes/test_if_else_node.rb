@@ -30,4 +30,32 @@ class TestIfElseNode < Minitest::Test
       node.evaluate(@context)
     end
   end
+
+  def test_singular_if_condition
+    input = 'if (5 == 5) { console.input("single if condition"); };'
+    node = Confuscript.parser.parse(input)
+
+    puts Confuscript.parser.failure_reason unless node
+
+    assert_output("\"single if condition\"\n") do
+      node.evaluate(@context)
+    end
+  end
+
+  def test_multiline_if_else_condition
+    input = <<~TEXT.chomp
+      if (5 == 5) {
+        console.input("hello");
+      } else {
+        console.input("world");
+      };
+      TEXT
+      
+    node = Confuscript.parser.parse(input)
+    puts Confuscript.parser.failure_reason unless node
+
+    assert_output("\"hello\"\n") do
+      node.evaluate(@context)
+    end
+  end
 end
