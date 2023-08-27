@@ -8,7 +8,7 @@ class TestConfuscript < Minitest::Test
   end
 
   def test_successful_parse_and_interpret
-    assert_output("\"hello world\"\n") do
+    assert_output("hello world\n") do
       Confuscript.interpret(@code)
     end
   end

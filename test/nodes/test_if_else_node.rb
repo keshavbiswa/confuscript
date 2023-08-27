@@ -13,7 +13,7 @@ class TestIfElseNode < Minitest::Test
     input = 'if (5 == 5) { console.input("hello"); } else { console.input("world"); };'
     node = Confuscript.parser.parse(input)
 
-    assert_output("\"hello\"\n") do
+    assert_output("hello\n") do
       node.evaluate(@context)
     end
   end
@@ -26,7 +26,7 @@ class TestIfElseNode < Minitest::Test
     input = 'if (5 != 5) { console.input("hello"); } else { console.input("world"); };'
     node = Confuscript.parser.parse(input)
 
-    assert_output("\"world\"\n") do
+    assert_output("world\n") do
       node.evaluate(@context)
     end
   end
@@ -37,7 +37,7 @@ class TestIfElseNode < Minitest::Test
 
     puts Confuscript.parser.failure_reason unless node
 
-    assert_output("\"single if condition\"\n") do
+    assert_output("single if condition\n") do
       node.evaluate(@context)
     end
   end
@@ -54,7 +54,7 @@ class TestIfElseNode < Minitest::Test
     node = Confuscript.parser.parse(input)
     puts Confuscript.parser.failure_reason unless node
 
-    assert_output("\"hello\"\n") do
+    assert_output("hello\n") do
       node.evaluate(@context)
     end
   end

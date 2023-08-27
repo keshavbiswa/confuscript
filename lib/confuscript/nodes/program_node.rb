@@ -2,13 +2,20 @@ module Confuscript
   module Nodes
     class ProgramNode < BaseNode
       def evaluate(context)
-        raise Confuscript::SyntaxError, "There is no program to evaluate." unless child
+        raise Confuscript::SyntaxError, "There is no program to evaluate." unless children.any?
 
-        child.evaluate(context)
+        # Not the best way to evaluate
+        # TODO:- Revisit this
+        # Evaluate all children and return the result of the last one
+        children.map { |child| child.elements[0].evaluate(context) }.last
       end
 
-      def child
-        elements[1].elements[0]
+      def children
+        elements[1]&.elements || []
+      end
+
+      def first_child
+        children.first&.elements&.first
       end
     end
   end

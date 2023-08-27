@@ -1,6 +1,6 @@
 grammar Confuscript
   rule program
-    space action* space <Confuscript::Nodes::ProgramNode>
+    space? (action space?)* <Confuscript::Nodes::ProgramNode>
   end
   
   rule action
@@ -83,7 +83,7 @@ grammar Confuscript
   ### Inputs and Outputs
 
   rule console_input
-    'console.input(' string ')' ';' <Confuscript::Nodes::ConsoleInputNode>
+    'console.input(' value ')' ';' <Confuscript::Nodes::ConsoleInputNode>
   end
 
   ### Print

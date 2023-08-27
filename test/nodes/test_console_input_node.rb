@@ -4,18 +4,27 @@ require "test_helper"
 
 class TestConsoleInputNode < Minitest::Test
   def setup
-    @hello_world = '"hello world"'
-    @code = "console.input(#{@hello_world})"
+    @input = 'console.input("hello world");'
 
     @context = {}
   end
 
   def test_console_input_evaluate
-    string_node = Confuscript::Nodes::Values::StringNode.new(@hello_world, 0..@hello_world.length)
-    node = Confuscript::Nodes::ConsoleInputNode.new(@code, 0..@code.length)
-    node.string = string_node
+    node = Confuscript.parser.parse(@input)
 
-    assert_output("\"hello world\"\n") do
+    assert_output("hello world\n") do
+      node.evaluate(@context)
+    end
+  end
+
+  def test_console_input_with_value
+    @context = { "a" => 5 }
+
+    input = 'console.input(a);'
+
+    node = Confuscript.parser.parse(input)
+
+    assert_output("5\n") do
       node.evaluate(@context)
     end
   end

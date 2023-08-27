@@ -11,7 +11,7 @@ class TestVoidNode < Minitest::Test
 
     puts Confuscript.parser.failure_reason unless node
 
-    assert node.child.is_a?(Confuscript::Nodes::Print::VoidNode)
+    assert node.first_child.is_a?(Confuscript::Nodes::Print::VoidNode)
   end
 
   def test_void_node_evaluate

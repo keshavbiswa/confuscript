@@ -12,13 +12,13 @@ class TestProgramNode < Minitest::Test
     puts Confuscript.parser.failure_reason unless node
 
     assert node.is_a?(Confuscript::Nodes::ProgramNode)
-    assert node.child.is_a?(Confuscript::Nodes::ConsoleInputNode)
+    assert node.first_child.is_a?(Confuscript::Nodes::ConsoleInputNode)
   end
 
   def test_program_node_evaluate
     node = Confuscript.parser.parse(@input)
 
-    assert_output("\"hello world\"\n") do
+    assert_output("hello world\n") do
       node.evaluate(@context)
     end
   end
