@@ -1,18 +1,18 @@
 module Confuscript
   module Nodes
-    module Functions
-      # Represents a FunctionCall node
-      class FunctionCallNode < Treetop::Runtime::SyntaxNode
+    module Print
+      # Represents a PrintCall node
+      class PrintCallNode < Treetop::Runtime::SyntaxNode
         def evaluate(context)
-          function_name_element = elements[0]
-          function_arguments_element = elements[3]
+          print_name_element = elements[0]
+          print_arguments_element = elements[3]
 
-          function_name = function_name_element.text_value
-          raise Confuscript::SyntaxError, "Function #{function_name} not defined" unless context[function_name]
+          print_name = print_name_element.text_value
+          raise Confuscript::SyntaxError, "Print #{print_name} not defined" unless context[print_name]
 
-          function_arguments = retrieve_arguments(function_arguments_element.elements, context)
+          print_arguments = retrieve_arguments(print_arguments_element.elements, context)
 
-          context[function_name].call(*function_arguments)
+          context[print_name].call(*print_arguments)
         end
 
         private
@@ -31,7 +31,7 @@ module Confuscript
               # SyntaxNode offset=14, "2"
         ## 
         # There is a nested structure for the arguments
-        # This required a recursive function to retrieve the arguments
+        # This required a recursive print to retrieve the arguments
         # from the elements
         def retrieve_arguments(elements, context)
           elements.flat_map do |element|

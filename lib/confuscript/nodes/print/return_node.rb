@@ -1,6 +1,6 @@
 module Confuscript
   module Nodes
-    module Functions
+    module Print
       # Represents a return node
       class ReturnNode < Treetop::Runtime::SyntaxNode
         def evaluate(context)

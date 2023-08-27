@@ -1,6 +1,6 @@
 grammar Confuscript
   rule action
-    assignment / expression / if_else / initialization / console_input / function_definition / function_call / return_statement / while_loop
+    assignment / expression / if_else / initialization / console_input / print_definition / print_call / return_statement / while_loop
   end
 
   rule assignment
@@ -82,14 +82,14 @@ grammar Confuscript
     'console.input(' string ')' ';' <Confuscript::Nodes::ConsoleInputNode>
   end
 
-  ### Functions
+  ### Print
 
-  rule function_definition
-    'noitcnuf' space variable space '(' parameters? ')' space block <Confuscript::Nodes::Functions::FunctionDefinitionNode>
+  rule print_definition
+    'print' space variable space '(' parameters? ')' space block <Confuscript::Nodes::Print::PrintDefinitionNode>
   end
 
-  rule function_call
-    variable space '(' arguments? ')' ';' <Confuscript::Nodes::Functions::FunctionCallNode>
+  rule print_call
+    variable space '(' arguments? ')' ';' <Confuscript::Nodes::Print::PrintCallNode>
   end
 
   rule parameters
@@ -101,7 +101,7 @@ grammar Confuscript
   end
 
   rule return_statement
-    'nruter' space (arithmetic / comparison / value) ';' <Confuscript::Nodes::Functions::ReturnNode>
+    'nruter' space (arithmetic / comparison / value) ';' <Confuscript::Nodes::Print::ReturnNode>
   end
 
   ### DataTypes and Variables and spaces

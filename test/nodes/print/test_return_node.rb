@@ -11,7 +11,7 @@ class TestReturnNode < Minitest::Test
 
     puts Confuscript.parser.failure_reason unless node
 
-    assert node.is_a?(Confuscript::Nodes::Functions::ReturnNode)
+    assert node.is_a?(Confuscript::Nodes::Print::ReturnNode)
   end
 
   def test_return_node_evaluate
