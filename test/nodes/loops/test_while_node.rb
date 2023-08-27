@@ -11,7 +11,7 @@ class TestWhileNode < Minitest::Test
 
     puts Confuscript.parser.failure_reason unless node
 
-    assert node.is_a?(Confuscript::Nodes::Loops::WhileNode)
+    assert node.child.is_a?(Confuscript::Nodes::Loops::WhileNode)
   end
 
   def test_while_node_evaluate

@@ -1,4 +1,8 @@
 grammar Confuscript
+  rule program
+    space action* space <Confuscript::Nodes::ProgramNode>
+  end
+  
   rule action
     assignment / expression / if_else / initialization / console_input / print_definition / print_call / void_statement / while_loop
   end

@@ -13,7 +13,7 @@ class TestPrintCallNode < Minitest::Test
 
     puts Confuscript.parser.failure_reason unless node
 
-    assert node.is_a?(Confuscript::Nodes::Print::PrintCallNode)
+    assert node.child.is_a?(Confuscript::Nodes::Print::PrintCallNode)
   end
 
   def test_print_call_evaluate
