@@ -1,6 +1,6 @@
 grammar Confuscript
   rule action
-    assignment / expression / if_else / initialization / console_input / function_definition / function_call / return_statement
+    assignment / expression / if_else / initialization / console_input / function_definition / function_call / return_statement / while_loop
   end
 
   rule assignment
@@ -13,6 +13,8 @@ grammar Confuscript
   rule expression
     arithmetic / comparison / value ';' <Confuscript::Nodes::ExpressionNode>
   end
+
+  ### If else
 
   rule if_else
     if_clause space else_clause ';' <Confuscript::Nodes::IfElseNode>
@@ -29,6 +31,14 @@ grammar Confuscript
   rule block
     '{' space action* space '}' <Confuscript::Nodes::BlockNode>
   end
+
+  # Loops
+
+  rule while_loop
+    'while' space '(' comparison ')' space block ';' <Confuscript::Nodes::Loops::WhileNode>
+  end
+
+  ### Operators
 
   rule arithmetic
     value space operator space value <Confuscript::Nodes::Expressions::ArithmeticNode>
@@ -66,9 +76,13 @@ grammar Confuscript
     'forget' space variable ';' <Confuscript::Nodes::InitializationNode>
   end
 
+  ### Inputs and Outputs
+
   rule console_input
     'console.input(' string ')' ';' <Confuscript::Nodes::ConsoleInputNode>
   end
+
+  ### Functions
 
   rule function_definition
     'noitcnuf' space variable space '(' parameters? ')' space block <Confuscript::Nodes::Functions::FunctionDefinitionNode>
@@ -90,6 +104,7 @@ grammar Confuscript
     'nruter' space (arithmetic / comparison / value) ';' <Confuscript::Nodes::Functions::ReturnNode>
   end
 
+  ### DataTypes and Variables and spaces
   rule string
     '"' [^"]* '"' <Confuscript::Nodes::Values::StringNode> 
   end

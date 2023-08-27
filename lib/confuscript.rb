@@ -26,6 +26,9 @@ require_relative "confuscript/nodes/functions/function_definition_node"
 require_relative "confuscript/nodes/functions/function_call_node"
 require_relative "confuscript/nodes/functions/return_node"
 
+# Loops
+require_relative "confuscript/nodes/loops/while_node"
+
 # Operators
 require_relative "confuscript/nodes/operators/addition_node"
 require_relative "confuscript/nodes/operators/subtraction_node"
