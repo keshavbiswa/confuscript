@@ -4,7 +4,7 @@ require "test_helper"
 
 class TestPrintDefinitionNode < Minitest::Test
   def setup
-    @input = "print addNumbers(a, b) { nruter 1 + 3; }"
+    @input = "print addNumbers(a, b) { void 1 + 3; }"
     @context = {}
   end
 

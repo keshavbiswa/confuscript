@@ -1,20 +1,20 @@
 require "test_helper"
 
-class TestReturnNode < Minitest::Test
+class TestVoidNode < Minitest::Test
   def setup
-    @input = "nruter 5;"
+    @input = "void 5;"
     @context = {}
   end
 
-  def test_return_node_parse
+  def test_void_node_parse
     node = Confuscript.parser.parse(@input)
 
     puts Confuscript.parser.failure_reason unless node
 
-    assert node.is_a?(Confuscript::Nodes::Print::ReturnNode)
+    assert node.is_a?(Confuscript::Nodes::Print::VoidNode)
   end
 
-  def test_return_node_evaluate
+  def test_void_node_evaluate
     node = Confuscript.parser.parse(@input)
 
     result = node.evaluate(@context)

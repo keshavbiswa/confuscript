@@ -1,6 +1,6 @@
 grammar Confuscript
   rule action
-    assignment / expression / if_else / initialization / console_input / print_definition / print_call / return_statement / while_loop
+    assignment / expression / if_else / initialization / console_input / print_definition / print_call / void_statement / while_loop
   end
 
   rule assignment
@@ -100,8 +100,8 @@ grammar Confuscript
     value (space ',' space value)*
   end
 
-  rule return_statement
-    'nruter' space (arithmetic / comparison / value) ';' <Confuscript::Nodes::Print::ReturnNode>
+  rule void_statement
+    'void' space (arithmetic / comparison / value) ';' <Confuscript::Nodes::Print::VoidNode>
   end
 
   ### DataTypes and Variables and spaces

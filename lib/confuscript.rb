@@ -24,7 +24,7 @@ require_relative "confuscript/nodes/values/boolean_node"
 # Print
 require_relative "confuscript/nodes/print/print_definition_node"
 require_relative "confuscript/nodes/print/print_call_node"
-require_relative "confuscript/nodes/print/return_node"
+require_relative "confuscript/nodes/print/void_node"
 
 # Loops
 require_relative "confuscript/nodes/loops/while_node"
