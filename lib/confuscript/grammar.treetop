@@ -85,7 +85,7 @@ grammar Confuscript
   ### Print
 
   rule print_definition
-    'print' space variable space '(' parameters? ')' space block <Confuscript::Nodes::Print::PrintDefinitionNode>
+    'print' space variable space '(' parameters? ')' space block ';' <Confuscript::Nodes::Print::PrintDefinitionNode>
   end
 
   rule print_call
