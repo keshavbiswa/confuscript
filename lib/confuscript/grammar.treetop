@@ -33,7 +33,7 @@ grammar Confuscript
   end
 
   rule block
-    '{' space action* space '}' <Confuscript::Nodes::BlockNode>
+    '{' space (action space?)* space '}' <Confuscript::Nodes::BlockNode>
   end
 
   # Loops
