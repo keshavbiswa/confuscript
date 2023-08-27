@@ -21,4 +21,18 @@ class TestWhileNode < Minitest::Test
 
     assert_equal(5, @context["a"])
   end
+
+  def test_multiline_while_node_evaluate
+    input = <<~TEXT.chomp
+      while (a != 5) {
+        a = a - 1;
+      };
+    TEXT
+
+    node = Confuscript.parser.parse(input)
+
+    node.evaluate(@context)
+
+    assert_equal(5, @context["a"])
+  end
 end
