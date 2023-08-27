@@ -4,8 +4,9 @@ module Confuscript
       attr_accessor :string
 
       def evaluate(context)
-        # For demonstration purposes,
-        # we're just printing the inner string of console.input to the console.        puts value.evaluate(context)
+        # Basically we're putsing the value
+        # Not the best way to do this
+        puts value.evaluate(context)
       end
     end
   end
