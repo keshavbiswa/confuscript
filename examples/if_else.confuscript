@@ -1,0 +1,5 @@
+if (5 == 5) {
+  console.input("hello");
+} else {
+  console.input("world");
+};
