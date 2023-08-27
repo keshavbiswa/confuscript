@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/confuscript'
+
+def interpret_file(filename)
+  input = File.read(filename)
+  parser = Confuscript.parser
+  tree = parser.parse(input)
+
+  if tree.nil?
+    puts "Syntax Error in your Confuscript!"
+    puts parser.failure_reason
+    exit 1
+  end
+
+  # Context will be our main data structure for all the variables and functions
+  context = {}
+
+  tree.evaluate(context)
+end
+
+# TODO:- Revisit this
+# Pure copy paste from a similar gem
+if ARGV.size != 1
+  puts "Usage: confuscript <filename>"
+  exit 1
+end
+
+interpret_file(ARGV[0])
