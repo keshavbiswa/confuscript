@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestWhileLoop < Minitest::Test
   def setup
-    @input = File.read "test/fixtures/while_loop.cfs"
+    @input = File.read "test/fixtures/while_loop.notjs"
   end
 
   def test_hello_world

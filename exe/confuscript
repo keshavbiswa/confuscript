@@ -1,8 +1,16 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/confuscript'
+require_relative "../lib/confuscript"
+
+FILE_EXTENSION = ".notjs"
 
 def interpret_file(filename)
+  # Check if the file extension is .notjs
+  unless File.extname(filename) == FILE_EXTENSION
+    puts "Invalid file extension. Please use a .notjs file."
+    exit 1
+  end
+
   input = File.read(filename)
   parser = Confuscript.parser
   tree = parser.parse(input)

@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestIfElse < Minitest::Test
   def setup
-    @input = File.read "test/fixtures/if_else.cfs"
+    @input = File.read "test/fixtures/if_else.notjs"
   end
 
   def test_if_else

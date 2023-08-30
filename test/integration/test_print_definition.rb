@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestPrintDefinition < Minitest::Test
   def setup
-    @input = File.read "test/fixtures/print_definition.cfs"
+    @input = File.read "test/fixtures/print_definition.notjs"
   end
 
   def test_print_definition

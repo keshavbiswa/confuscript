@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestHelloWorld < Minitest::Test
   def setup
-    @input = File.read "test/fixtures/hello_world.cfs"
+    @input = File.read "test/fixtures/hello_world.notjs"
   end
 
   def test_hello_world
