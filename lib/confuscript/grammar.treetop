@@ -4,7 +4,7 @@ grammar Confuscript
   end
   
   rule action
-    assignment / expression / if_else / initialization / console_input / print_definition / print_call / void_statement / while_loop
+    assignment / expression / if_else / initialization / console_input / print_definition / print_call / void_statement / while_loop / comment
   end
 
   rule assignment
@@ -108,7 +108,7 @@ grammar Confuscript
     'void' space (arithmetic / comparison / value) ';' <Confuscript::Nodes::Print::VoidNode>
   end
 
-  ### DataTypes and Variables and spaces
+  ### DataTypes and Variables
   rule string
     '"' [^"]* '"' <Confuscript::Nodes::Values::StringNode> 
   end
@@ -121,19 +121,24 @@ grammar Confuscript
     'true' / 'false' <Confuscript::Nodes::Values::BooleanNode>
   end
 
-  rule space
-    (' ' / newline)*
-  end
-
-  rule newline
-    ("\r\n"+ / [\r\n]+)
-  end
-
   rule variable
     [a-zA-Z]+ <Confuscript::Nodes::Values::VariableNode>
   end
 
   rule value
     string / number / boolean / variable
+  end
+
+  ### Spaces, NewLines and Comments
+  rule space
+    (' ' / newline / comment)*
+  end
+
+  rule newline
+    ("\r\n"+ / [\r\n]+)
+  end
+
+  rule comment
+    '\\' [^r\n]* <Confuscript::Nodes::CommentNode>
   end
 end

@@ -22,12 +22,4 @@ class TestProgramNode < Minitest::Test
       node.evaluate(@context)
     end
   end
-
-  def test_raises_error_when_no_child
-    node = Confuscript.parser.parse("")
-
-    assert_raises Confuscript::SyntaxError do
-      node.evaluate(@context)
-    end
-  end
 end

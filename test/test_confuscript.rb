@@ -20,7 +20,7 @@ class TestConfuscript < Minitest::Test
   end
 
   def test_empty_input
-    assert_raises Confuscript::Error do
+    assert_output "" do
       Confuscript.interpret("")
     end
   end
