@@ -1,0 +1,3 @@
+null a = 5;
+console.input(a);
+console.input("Hello world!");
