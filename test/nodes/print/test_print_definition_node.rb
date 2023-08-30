@@ -43,7 +43,7 @@ class TestPrintDefinitionNode < Minitest::Test
   def test_assignment_inside_print_definition_evaluate
     input = <<~TEXT.chomp
       print addNumbers(a, b) {
-        null c = 1 + 3;
+        null c = a + b;
         void c;
       };
     TEXT
@@ -54,5 +54,22 @@ class TestPrintDefinitionNode < Minitest::Test
 
     assert @context.key?("addNumbers")
     assert @context["addNumbers"].is_a?(Proc)
+    assert_equal 6, @context["addNumbers"].call(10, 4)
+  end
+  
+  def test_multiple_arguments_inside_print_definition
+    input = <<~TEXT.chomp
+      print subtractNumbers(a, b, c) {
+        void a - b - c;
+      };
+    TEXT
+
+    node = Confuscript.parser.parse(input)
+
+    node.evaluate(@context)
+
+    assert @context.key?("subtractNumbers")
+    assert @context["subtractNumbers"].is_a?(Proc)
+    assert_equal 17, @context["subtractNumbers"].call(10, 5, 2)
   end
 end

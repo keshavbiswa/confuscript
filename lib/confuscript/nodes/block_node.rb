@@ -2,10 +2,13 @@ module Confuscript
   module Nodes
     class BlockNode < BaseNode
       def evaluate(context)
+        actions = []
         action_lists.each do |action|
           element = action.elements.first
-          element.evaluate(context) if element.respond_to?(:evaluate)
+          actions << element.evaluate(context) if element.respond_to?(:evaluate)
         end
+
+        actions.last
       end
 
       private
