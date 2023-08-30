@@ -12,7 +12,11 @@ module Confuscript
 
           print_arguments = retrieve_arguments(print_arguments_element.elements, context)
 
-          context[print_name].call(*print_arguments)
+          begin
+            context[print_name].call(*print_arguments)
+          rescue Confuscript::VoidEncountered => e
+            e.value
+          end
         end
 
         private

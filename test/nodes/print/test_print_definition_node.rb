@@ -54,7 +54,7 @@ class TestPrintDefinitionNode < Minitest::Test
 
     assert @context.key?("addNumbers")
     assert @context["addNumbers"].is_a?(Proc)
-    assert_equal 6, @context["addNumbers"].call(10, 4)
+    assert_equal 6, Confuscript.parser.parse("addNumbers(8, 2);").evaluate(@context)
   end
   
   def test_multiple_arguments_inside_print_definition
@@ -70,6 +70,6 @@ class TestPrintDefinitionNode < Minitest::Test
 
     assert @context.key?("subtractNumbers")
     assert @context["subtractNumbers"].is_a?(Proc)
-    assert_equal 17, @context["subtractNumbers"].call(10, 5, 2)
+    assert_equal 17, Confuscript.parser.parse("subtractNumbers(10, 5, 2);").evaluate(@context)
   end
 end

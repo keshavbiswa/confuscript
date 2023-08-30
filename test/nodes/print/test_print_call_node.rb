@@ -29,4 +29,21 @@ class TestPrintCallNode < Minitest::Test
 
     assert_raises(Confuscript::SyntaxError) { node.evaluate(context) }
   end
+
+  def test_returns_the_first_void_value
+    @input = <<~TEXT.chomp
+      print randomPrint(a, b) {
+        void 6 + 2;
+        void 2 + 4;
+      };
+
+      randomPrint(8, 2);
+    TEXT
+
+    node = Confuscript.parser.parse(@input)
+
+    result = node.evaluate(@context)
+
+    assert_equal 4, Confuscript.parser.parse("randomPrint(8, 2);").evaluate(@context)
+  end
 end

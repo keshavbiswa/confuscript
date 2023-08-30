@@ -17,8 +17,10 @@ class TestVoidNode < Minitest::Test
   def test_void_node_evaluate
     node = Confuscript.parser.parse(@input)
 
-    result = node.evaluate(@context)
-
-    assert_equal(5, result)
+    assert_raises(Confuscript::VoidEncountered) do
+      result = node.evaluate(@context)
+   
+      assert_equal(5, result)
+    end
   end
 end

@@ -10,8 +10,10 @@ grammar Confuscript
   rule assignment
     'null' space variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> /
     'null' space variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode> /
+    'null' space variable space '=' space print_call <Confuscript::Nodes::AssignmentNode> /
     variable space '=' space value ';' <Confuscript::Nodes::AssignmentNode> / 
-    variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode>
+    variable space '=' space arithmetic ';' <Confuscript::Nodes::AssignmentNode> /
+    variable space '=' space print_call <Confuscript::Nodes::AssignmentNode>
   end
 
   rule expression

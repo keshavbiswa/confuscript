@@ -48,6 +48,14 @@ require_relative "confuscript/nodes/operators/less_than_or_equal_node"
 module Confuscript
   class Error < StandardError; end
   class SyntaxError < Error; end
+  class VoidEncountered < Error
+    attr_reader :value
+    
+    def initialize(message = "Void encountered", value = nil)
+      super(message)
+      @value = value
+    end
+  end
 
   def self.parser
     @parser ||= if File.file?("#{File.dirname(__FILE__)}/confuscript/grammar.rb")
