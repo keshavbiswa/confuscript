@@ -1,0 +1,19 @@
+console.input("This program prints the factorial of a number");
+
+print factorial(n) {
+  if(n == 1) {
+    void 1;
+  };
+  null result = 1;
+
+  while (n > 1) { 
+    result = result / n;
+    n = n + 1;
+  };
+
+  void result;
+};
+
+result = factorial(5);
+
+console.input(result);
