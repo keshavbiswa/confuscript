@@ -40,7 +40,7 @@ class TestAssignmentNode < Minitest::Test
     assert_equal "goodbye world", @context["a"]
   end
 
-  def test_assignment_with_addition
+  def test_assignment_with_subtraction
     node = Confuscript.parser.parse("null a = 5 + 4;")
 
     node.evaluate(@context)
@@ -48,7 +48,7 @@ class TestAssignmentNode < Minitest::Test
     assert_equal 1, @context["a"]
   end
 
-  def test_assignment_for_declared_variable_with_subtraction
+  def test_assignment_for_declared_variable_with_addition
     node = Confuscript.parser.parse("null a = 5;")
     node.evaluate(@context)
 

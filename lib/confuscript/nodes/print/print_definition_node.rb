@@ -4,11 +4,6 @@ module Confuscript
       # Represents a print definition node
       class PrintDefinitionNode < BaseNode
         def evaluate(context)
-          print_name_element = elements[2]
-          print_arguments_element = elements[5]
-          print_body_element = elements[8]
-
-
           print_name = print_name_element.text_value
           print_arguments = print_arguments_element.elements.map(&:text_value)
           print_body = print_body_element
@@ -31,6 +26,18 @@ module Confuscript
           raise Confuscript::SyntaxError, "Print #{print_name} already defined" if context[print_name]
 
           context[print_name] = print
+        end
+
+        def print_name_element
+          elements[2]
+        end
+
+        def print_arguments_element
+          elements[5]
+        end
+
+        def print_body_element
+          elements[8]
         end
       end
     end

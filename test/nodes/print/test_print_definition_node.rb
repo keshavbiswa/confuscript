@@ -39,4 +39,20 @@ class TestPrintDefinitionNode < Minitest::Test
     assert @context.key?("addNumbers")
     assert @context["addNumbers"].is_a?(Proc)
   end
+
+  def test_assignment_inside_print_definition_evaluate
+    input = <<~TEXT.chomp
+      print addNumbers(a, b) {
+        null c = 1 + 3;
+        void c;
+      };
+    TEXT
+
+    node = Confuscript.parser.parse(input)
+
+    node.evaluate(@context)
+
+    assert @context.key?("addNumbers")
+    assert @context["addNumbers"].is_a?(Proc)
+  end
 end
