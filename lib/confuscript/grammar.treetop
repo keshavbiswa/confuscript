@@ -45,7 +45,7 @@ grammar Confuscript
   ### Operators
 
   rule arithmetic
-    value space operator space value <Confuscript::Nodes::Expressions::ArithmeticNode>
+    value space operator space (arithmetic / value) <Confuscript::Nodes::Expressions::ArithmeticNode>
   end
 
   rule comparison
