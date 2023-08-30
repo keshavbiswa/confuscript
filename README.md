@@ -1,5 +1,7 @@
 # Confuscript
-Welcome to Confuscript! This is not just another programming language; it's an exercise in cognitive somersaults, a dive into a world where traditional programming rules are turned upside-down. Built entirely on Ruby, This is a fun programming language to confuse yourself.`
+Welcome to Confuscript! This is not just another programming language; it's an exercise in cognitive somersaults, a dive into a world where traditional programming rules are turned upside-down. Built entirely on Ruby, This is a fun programming language to confuse yourself.
+
+This was built using [Treetop](https://github.com/cjheath/treetop).
 
 ## Why Confuscript?
  The name `Confuscript` means `Confusing JavaScript`. Inspired by the syntax of JavaScript, Confuscript is a fun programming language that will make you think twice about everything you know about programming. While most
