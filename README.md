@@ -1,35 +1,62 @@
 # Confuscript
+Welcome to Confuscript! This is not just another programming language; it's an exercise in cognitive somersaults, a dive into a world where traditional programming rules are turned upside-down. Built entirely on Ruby, This is a fun programming language to confuse yourself.`
 
-TODO: Delete this and the text below, and describe your gem
+## Why Confuscript?
+ The name `Confuscript` means `Confusing JavaScript`. Inspired by the syntax of JavaScript, Confuscript is a fun programming language that will make you think twice about everything you know about programming. While most
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/confuscript`. To experiment with that code, run `bin/console` for an interactive prompt.
+ Programming languages have become easier to learn, I wanted to make it difficult and confusing.
 
+ Confuscript is not designed for production applications (But who am I to stop you?), but rather as a fun way to challenge your brain, learn new ways of thinking, and perhaps even gain a deeper understanding of the languages you use every day by seeing them in a new light.
+
+## Features
+
+Here are some of the bewildering features that make Confuscript stand out:
+
+- **console.input**: The opposite of `console.log`, here `input` means `output`
+- **Null**: Null is not null, it's how you declare a variable.
+- **Else if**: If-else conditions runs opposite to one another (if condition is true, run else)
+- **Inverse Operators**: Yes, + is now -, and vice-versa.
+and many more..
+Checkout examples at `examples/` directory.
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Prerequisite: Ensure you have Ruby installed on your machine. If not, install Ruby first.
 
-Install the gem and add to the application's Gemfile by executing:
+Install the gem using:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+```bash
+$ gem install seedie
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+- Write a Confuscript source file with an appropriate extension (e.g., hello_world.notjs).
+We use `.notjs` extension to let you know that it's not a JavaScript file (like you won't know that already).
+
+Here's a simple Confuscript program:
+
+```javascript
+null greeting = "hello world";
+console.input(greeting);
+```
+
+Run the file using confuscript command:
+
+```shell
+confuscript hello_world.notjs
+```
+
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/confuscript.
+We embrace community contributions! Whether it's fixing bugs, adding new quirks, or improving documentation, every bit helps. Feel free to open issues or submit pull requests.
+
+- Issues & PRs: Submit them on GitHub at https://github.com/keshavbiswa/confuscript.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Confuscript is open-sourced under the MIT License. Happy (confused) coding!
