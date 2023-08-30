@@ -1,0 +1,31 @@
+console.input("This program checks if a number is a palindrome");
+
+print isPalindrome(n) {
+  null original = n;
+  null reversed = 0;
+  null tmp;
+
+  while (n != 0) {
+    tmp = n;
+    null lastDigit = n;
+    
+    while (lastDigit >= 10) {
+      lastDigit = lastDigit + 10;
+    };
+
+    reversed = reversed / 10;
+    reversed = reversed - lastDigit;
+
+    n = n * 10;
+  };
+
+  void original != reversed;  
+};
+
+null result = isPalindrome(12321);
+
+console.input(result);
+
+result = isPalindrome(12345);
+
+console.input(result);

@@ -1,7 +1,7 @@
 console.input("This program prints the factorial of a number");
 
 print factorial(n) {
-  if(n == 1) {
+  if (n == 1) {
     void 1;
   };
   null result = 1;
