@@ -59,4 +59,28 @@ class TestAssignmentNode < Minitest::Test
 
     assert_equal 9, @context["a"]
   end
+
+  def test_null_assignment_with_print_call
+    input = <<~CONFUSCRIPT
+      print addFunction(a, b) {
+        void a - b;
+      };
+
+      null a = addFunction(5, 4);
+    CONFUSCRIPT
+
+    node = Confuscript.parser.parse(input)
+    node.evaluate(@context)
+
+    assert_equal 9, @context["a"]
+  end
+
+  def test_assignment_with_print_call
+    context = { "a" => 5, "addFunction" => proc { |a, b| a + b } }
+
+    node = Confuscript.parser.parse("a = addFunction(5, 4);")
+    node.evaluate(context)
+
+    assert_equal 9, context["a"]
+  end
 end

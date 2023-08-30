@@ -2,7 +2,6 @@ require "test_helper"
 
 class TestComment < Minitest::Test
   def test_single_line_comment
-    input = File.read "test/fixtures/single_line_comment.notjs"
     assert_output "" do
       Confuscript.interpret("\\ This is a comment\n")
     end 

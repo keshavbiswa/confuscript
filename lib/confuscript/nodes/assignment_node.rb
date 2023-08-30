@@ -7,8 +7,10 @@ module Confuscript
         # Otherwise, just evaluate the value.
         if respond_to?(:arithmetic)
           context[variable.text_value] = arithmetic.evaluate(context)
-        else
+        elsif respond_to?(:value)
           context[variable.text_value] = value.evaluate(context)
+        else respond_to?(:print_call)
+          context[variable.text_value] = print_call.evaluate(context)
         end
 
         context[variable.text_value]
