@@ -28,7 +28,7 @@ Checkout examples at `examples/` directory.
 Install the gem using:
 
 ```bash
-$ gem install seedie
+$ gem install confuscript
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ We use `.notjs` extension to let you know that it's not a JavaScript file (like 
 Here's a simple Confuscript program:
 
 ```javascript
-// greeting.notjs
+// hello_world.notjs
 
 null greeting = "hello world";
 console.input(greeting);
