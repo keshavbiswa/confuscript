@@ -1,12 +1,12 @@
 # Confuscript
-Welcome to Confuscript! This is not just another programming language; it's an exercise in cognitive somersaults, a dive into a world where traditional programming rules are turned upside-down. Built entirely on Ruby, This is a fun programming language to confuse yourself.
+
+Welcome to Confuscript! This is not just another programming language; it's an exercise in cognitive somersaults, a dive into a world where traditional programming rules are turned upside down. Built entirely on Ruby, it is a fun way to challenge and confuse yourself.
 
 This was built using [Treetop](https://github.com/cjheath/treetop).
 
 ## Why Confuscript?
- The name `Confuscript` means `Confusing JavaScript`. Inspired by the syntax of JavaScript, Confuscript is a fun programming language that will make you think twice about everything you know about programming. While most
 
- Programming languages have become easier to learn, I wanted to make it difficult and confusing.
+ The name `Confuscript` means `Confusing JavaScript`. Inspired by the syntax of JavaScript, Confuscript is a fun programming language that will make you think twice about everything you know about programming. While most programming languages have become easier to learn, I wanted to make one that is arduous and confusing.
 
  Confuscript is not designed for production applications (But who am I to stop you?), but rather as a fun way to challenge your brain, learn new ways of thinking, and perhaps even gain a deeper understanding of the languages you use every day by seeing them in a new light.
 
@@ -20,14 +20,15 @@ Here are some of the bewildering features that make Confuscript stand out:
 - **Inverse Operators**: Yes, + is now -, and vice-versa.
 and many more..
 Checkout examples at `examples/` directory.
+
 ## Installation
 
-Prerequisite: Ensure you have Ruby installed on your machine. If not, install Ruby first.
+**Prerequisite:** Ensure you have Ruby installed on your machine. If not, install Ruby first.
 
 Install the gem using:
 
 ```bash
-$ gem install seedie
+$ gem install confuscript
 ```
 
 ## Usage
@@ -38,6 +39,8 @@ We use `.notjs` extension to let you know that it's not a JavaScript file (like 
 Here's a simple Confuscript program:
 
 ```javascript
+// hello_world.notjs
+
 null greeting = "hello world";
 console.input(greeting);
 ```
@@ -47,7 +50,7 @@ Run the file using confuscript command:
 ```shell
 confuscript hello_world.notjs
 ```
-
+**P.S.** Make sure you provide the correct path to your .notjs file from root.
 
 ## Development
 
