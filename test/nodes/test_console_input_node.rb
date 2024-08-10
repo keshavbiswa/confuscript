@@ -20,7 +20,7 @@ class TestConsoleInputNode < Minitest::Test
   def test_console_input_with_value
     @context = { "a" => 5 }
 
-    input = 'console.input(a);'
+    input = "console.input(a);"
 
     node = Confuscript.parser.parse(input)
 
