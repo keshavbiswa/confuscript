@@ -1,8 +1,19 @@
 #!/usr/bin/env ruby
 
 require_relative "../lib/confuscript"
+require "optparse"
 
 FILE_EXTENSION = ".notjs"
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: confuscript [options] [file]"
+
+  opts.on("-c", "--console", "Start an interactive Confuscript console") do
+    options[:console] = true
+  end
+end.parse!
 
 def interpret_file(filename)
   # Check if the file extension is .notjs
@@ -27,11 +38,42 @@ def interpret_file(filename)
   tree.evaluate(context)
 end
 
-# TODO:- Revisit this
-# Pure copy paste from a similar gem
-if ARGV.size != 1
-  puts "Usage: confuscript <filename>"
-  exit 1
+def start_console
+  puts "Welcome to Confuscript interactive console!"
+  context = {}
+
+  loop do 
+    print "confuscript> "
+    input = gets.chomp
+    
+    break if input.downcase == "exit"
+
+    begin
+      parser = Confuscript.parser
+      tree = parser.parse(input)
+
+      if tree.nil?
+        puts "Syntax Error in your syntax"
+        puts parser.failure_reason
+      else
+        result = tree.evaluate(context)
+        puts "=> #{result.inspect}" if result 
+      end
+
+    rescue => e
+      puts "Error: #{e.message}"
+    end
+  end
+
+  puts "Exiting Console."
 end
 
-interpret_file(ARGV[0])
+
+if options[:console]
+  start_console
+elsif ARGV.size == 1
+  interpret_file(ARGV[0])
+else
+  puts "Error: Invalid Arguments. use -h or --help for usage."
+  exit 1
+end
