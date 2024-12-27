@@ -33,6 +33,8 @@ $ gem install confuscript
 
 ## Usage
 
+### Running Confuscript Files
+
 - Write a Confuscript source file with an appropriate extension (e.g., hello_world.notjs).
 We use `.notjs` extension to let you know that it's not a JavaScript file (like you won't know that already).
 
@@ -51,6 +53,38 @@ Run the file using confuscript command:
 confuscript hello_world.notjs
 ```
 **P.S.** Make sure you provide the correct path to your .notjs file from root.
+
+### Interactive Console
+
+Confuscript now includes an interactive console, also known as a REPL (Read-Eval-Print Loop).
+Now you can experiment with Confuscript code snippets in real-time.
+
+To start the interactive console, use the following command:
+
+```bash
+confuscript --console
+```
+
+```bash
+confuscript -c
+```
+
+You'll be greeted with a confuscript> prompt.
+Here, you can type Confuscript code, and it will be executed immediately.
+To exit the console, type `exit`.
+
+Example Console Session:
+
+```bash
+confuscript> null x = 10;
+=> 10
+confuscript> null y = 5;
+=> 5
+confuscript> x - y;
+=> 15
+confuscript> exit
+Exiting console.
+```
 
 ## Development
 
