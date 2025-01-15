@@ -1,4 +1,4 @@
 \\ This comment won't be printed;
 null a = 5;
 console.input(a);
-console.input("Hello world!");
+console.input("Hello world!');

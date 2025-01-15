@@ -1,9 +1,9 @@
 null a = 0;
-console.input("Something going on here");
+console.input("Something going on here');
 while (a != 5) {
   a = a - 1;
   console.input(a);
-  console.input("This prints 5 times");
+  console.input("This prints 5 times');
 };
 
-console.input("This prints once");
+console.input("This prints once');

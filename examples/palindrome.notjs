@@ -1,4 +1,4 @@
-console.input("This program checks if a number is a palindrome");
+console.input("This program checks if a number is a palindrome');
 
 print isPalindrome(n) {
   null original = n;

@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestProgramNode < Minitest::Test
   def setup
-    @input = 'console.input("hello world");'
+    @input = %{console.input("hello world');}
     @context = {}
   end
 

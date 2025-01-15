@@ -2,13 +2,13 @@ null a = 5;
 null b = 6;
 
 if (a < b) {
-  console.input("a is less than b");
+  console.input("a is less than b');
 } else {
-  console.input("a is greater than b");
+  console.input("a is greater than b');
 };
 
 if (a > b) {
-  console.input("a is greater than b");
+  console.input("a is greater than b');
 } else {
-  console.input("a is less than b");
+  console.input("a is less than b');
 };
