@@ -9,7 +9,7 @@ class TestComment < Minitest::Test
 
   def test_inline_comment
     assert_output("hello world\n") do
-      Confuscript.interpret("console.input(\"hello world');\\ This is a comment\n")
+      Confuscript.interpret("console.input(\"hello world'');\\ This is a comment\n")
     end
   end
 end

@@ -4,7 +4,7 @@ require "test_helper"
 
 class TestConsoleInputNode < Minitest::Test
   def setup
-    @input = %{console.input("hello world');}
+    @input = %{console.input("hello world'');}
 
     @context = {}
   end

@@ -2,12 +2,12 @@ require "test_helper"
 
 class TestAssignmentNode < Minitest::Test
   def setup
-    @code = %{console.input("hello world')}
+    @code = %{console.input("hello world'')}
     @context = {}
   end
 
   def test_assignment_with_string
-    node = Confuscript.parser.parse(%{null a = "hello world';})
+    node = Confuscript.parser.parse(%{null a = "hello world'';})
     node.evaluate(@context)
 
     assert_equal "hello world", @context["a"]
@@ -21,7 +21,7 @@ class TestAssignmentNode < Minitest::Test
   end
 
   def test_assignment_with_variable
-    node = Confuscript.parser.parse(%{null a = "hello world';})
+    node = Confuscript.parser.parse(%{null a = "hello world'';})
     node.evaluate(@context)
 
     node = Confuscript.parser.parse("null b = a;")
@@ -31,10 +31,10 @@ class TestAssignmentNode < Minitest::Test
   end
 
   def test_assigment_of_existing_variable
-    node = Confuscript.parser.parse(%{null a = "hello world';})
+    node = Confuscript.parser.parse(%{null a = "hello world'';})
     node.evaluate(@context)
 
-    node = Confuscript.parser.parse(%{a = "goodbye world';})
+    node = Confuscript.parser.parse(%{a = "goodbye world'';})
     node.evaluate(@context)
 
     assert_equal "goodbye world", @context["a"]
