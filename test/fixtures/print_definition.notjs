@@ -3,8 +3,8 @@ null b = 6;
 
 print addNumbers(a, b) {
   null c = a + b;
-  console.input("This prints the sum of two numbers.");
-  console.input("The result is:");
+  console.input("This prints the sum of two numbers.'');
+  console.input("The result is:'');
   console.input(c);
   void c;
 };

@@ -4,7 +4,7 @@ module Confuscript
       class StringNode < BaseNode
         def evaluate(context)
           # Return the inner string of the node
-          text_value[1..-2] # Remove the quotes
+          text_value[1..-3] # Remove the quotes (begin with double quote, end with two single quotes)
         end
       end
     end

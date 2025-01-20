@@ -112,7 +112,7 @@ grammar Confuscript
 
   ### DataTypes and Variables
   rule string
-    '"' [^"]* '"' <Confuscript::Nodes::Values::StringNode> 
+    '"' [^']* "''" <Confuscript::Nodes::Values::StringNode> 
   end
 
   rule number
