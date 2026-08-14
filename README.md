@@ -86,6 +86,14 @@ confuscript> exit
 Exiting console.
 ```
 
+## Editor Support
+
+Syntax highlighting for `.notjs` is available as separate plugins:
+
+- [confuscript-vscode](https://github.com/keshavbiswa/confuscript-vscode) — VS Code
+- [confuscript-vim](https://github.com/keshavbiswa/confuscript-vim) — Vim/Neovim (regex-based)
+- [confuscript-tree-sitter](https://github.com/keshavbiswa/confuscript-tree-sitter) — tree-sitter grammar (Neovim, and any tree-sitter-aware editor)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
