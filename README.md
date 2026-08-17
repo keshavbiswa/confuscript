@@ -90,7 +90,7 @@ Exiting console.
 
 Syntax highlighting for `.notjs` is available as separate plugins:
 
-- [confuscript-vscode](https://github.com/keshavbiswa/confuscript-vscode) — VS Code
+- [confuscript-vscode](https://github.com/keshavbiswa/confuscript-vscode) — VS Code ([install from Marketplace](https://marketplace.visualstudio.com/items?itemName=KeshavBiswa.notjs))
 - [confuscript-vim](https://github.com/keshavbiswa/confuscript-vim) — Vim/Neovim (regex-based)
 - [confuscript-tree-sitter](https://github.com/keshavbiswa/confuscript-tree-sitter) — tree-sitter grammar (Neovim, and any tree-sitter-aware editor)
 
