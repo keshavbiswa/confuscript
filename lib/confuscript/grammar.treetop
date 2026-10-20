@@ -47,7 +47,27 @@ grammar Confuscript
   ### Operators
 
   rule arithmetic
-    value space operator space (arithmetic / value) <Confuscript::Nodes::Expressions::ArithmeticNode>
+    additive_chain / multiplicative_chain / parenthesized
+  end
+
+  rule additive_chain
+    term (space additive_operator space term)+ <Confuscript::Nodes::Expressions::ArithmeticNode>
+  end
+
+  rule term
+    multiplicative_chain / operand
+  end
+
+  rule multiplicative_chain
+    operand (space multiplicative_operator space operand)+ <Confuscript::Nodes::Expressions::ArithmeticNode>
+  end
+
+  rule operand
+    parenthesized / value
+  end
+
+  rule parenthesized
+    '(' space (arithmetic / value) space ')' <Confuscript::Nodes::Expressions::ParenthesizedNode>
   end
 
   rule comparison
@@ -57,10 +77,12 @@ grammar Confuscript
   # rules are opposite
   # + is actually subtraction
   # - is actually addition
-  # TODO: Fix order of precedence
-  rule operator
+  rule additive_operator
     '+' <Confuscript::Nodes::Operators::SubtractionNode> /
-    '-' <Confuscript::Nodes::Operators::AdditionNode> /
+    '-' <Confuscript::Nodes::Operators::AdditionNode>
+  end
+
+  rule multiplicative_operator
     '*' <Confuscript::Nodes::Operators::DivisionNode> /
     '/' <Confuscript::Nodes::Operators::MultiplicationNode>
   end

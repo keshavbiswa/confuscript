@@ -46,4 +46,16 @@ class TestPrintCallNode < Minitest::Test
 
     assert_equal 4, Confuscript.parser.parse("randomPrint(8, 2);").evaluate(@context)
   end
+
+  def test_keeps_nil_arguments_in_position
+    context = Confuscript.interpret(<<~TEXT)
+      print second(a, b) {
+        void b;
+      };
+      null missing;
+      null result = second(missing, 3);
+    TEXT
+
+    assert_equal 3, context["result"]
+  end
 end

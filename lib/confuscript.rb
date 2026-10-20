@@ -17,6 +17,7 @@ require_relative "confuscript/nodes/block_node"
 # Expressions
 require_relative "confuscript/nodes/expressions/arithmetic_node"
 require_relative "confuscript/nodes/expressions/comparison_node"
+require_relative "confuscript/nodes/expressions/parenthesized_node"
 
 # Values
 require_relative "confuscript/nodes/values/variable_node"

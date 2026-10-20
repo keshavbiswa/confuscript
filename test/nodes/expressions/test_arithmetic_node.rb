@@ -31,4 +31,24 @@ class TestArithmeticNode < Minitest::Test
     # 5 + 4 * 3 = 17
     assert_equal 17, @node.evaluate(@context)
   end
+
+  def test_evaluate_left_associative
+    @node = Confuscript.parser.parse("10 + 2 + 3")
+
+    # (10 - 2) - 3 = 5
+    assert_equal 5, @node.evaluate(@context)
+  end
+
+  def test_evaluate_with_parentheses
+    @node = Confuscript.parser.parse("(5 - 4) / 3")
+
+    # (5 + 4) * 3 = 27
+    assert_equal 27, @node.evaluate(@context)
+  end
+
+  def test_evaluate_with_parenthesized_value
+    @node = Confuscript.parser.parse("(5) + (2)")
+
+    assert_equal 3, @node.evaluate(@context)
+  end
 end
