@@ -44,7 +44,10 @@ def start_console
 
   loop do 
     print "confuscript> "
-    input = gets.chomp
+    input = $stdin.gets
+    break if input.nil?
+
+    input = input.chomp
     
     break if input.downcase == "exit"
 

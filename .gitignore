@@ -9,3 +9,4 @@
 
 *emfile.lock
 *.gem
+/build/

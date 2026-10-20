@@ -37,6 +37,12 @@ task :grammar do
   File.write(COMPILED_GRAMMAR, source)
 end
 
+desc "Compile a native binary with Spinel (https://github.com/matz/spinel) into build/confuscript"
+task :spinel do
+  mkdir_p "build"
+  sh "spinel exe/confuscript -o build/confuscript"
+end
+
 require "rubocop/rake_task"
 
 RuboCop::RakeTask.new

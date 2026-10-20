@@ -98,6 +98,17 @@ Syntax highlighting for `.notjs` is available as separate plugins:
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
+### Native binary with Spinel
+
+Confuscript can be compiled ahead of time into a standalone native executable with [Spinel](https://github.com/matz/spinel). With `spinel` on your `PATH`:
+
+```bash
+rake spinel
+build/confuscript examples/factorial.notjs
+```
+
+The parser is precompiled into `lib/confuscript/grammar.rb`. After editing `grammar.treetop`, run `rake grammar` to regenerate it.
+
 ## Contributing
 
 We embrace community contributions! Whether it's fixing bugs, adding new quirks, or improving documentation, every bit helps. Feel free to open issues or submit pull requests.
