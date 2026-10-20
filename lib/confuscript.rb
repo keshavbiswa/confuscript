@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "treetop"
+require_relative "confuscript/treetop_runtime"
 
 require_relative "confuscript/version"
 
@@ -59,14 +59,7 @@ module Confuscript
   end
 
   def self.parser
-    @parser ||= if File.file?("#{File.dirname(__FILE__)}/confuscript/grammar.rb")
-                  # Take compiled one
-                  require_relative "grammar"
-                else
-                  # Else compile and load
-                  Treetop.load "#{File.dirname(__FILE__)}/confuscript/grammar.treetop"
-                  ConfuscriptParser.new
-                end
+    @parser ||= ConfuscriptParser.new
   end
 
   def self.interpret(code)
@@ -84,3 +77,5 @@ module Confuscript
     context
   end
 end
+
+require_relative "confuscript/grammar"

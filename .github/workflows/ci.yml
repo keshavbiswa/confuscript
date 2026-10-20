@@ -25,6 +25,9 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
 
+    - name: Check compiled grammar is up to date
+      run: bundle exec rake grammar && test -z "$(git status --porcelain lib/confuscript/grammar.rb)"
+
     - name: Run tests
       run: bundle exec rake test
 
