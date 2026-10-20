@@ -98,6 +98,10 @@ Syntax highlighting for `.notjs` is available as separate plugins:
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
+### Rust port
+
+A Rust port of the interpreter lives in `rust/`. With a Rust toolchain installed, run `cd rust && cargo run -- ../examples/factorial.notjs`, or `cargo test` to run its tests.
+
 ## Contributing
 
 We embrace community contributions! Whether it's fixing bugs, adding new quirks, or improving documentation, every bit helps. Feel free to open issues or submit pull requests.
