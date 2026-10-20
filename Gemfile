@@ -14,3 +14,5 @@ gem "rubocop", "~> 1.21"
 gem "treetop", "~> 1.6"
 
 gem "pry", "~> 0.14.2"
+
+gem "ostruct"
